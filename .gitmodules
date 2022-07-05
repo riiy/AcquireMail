@@ -2,5 +2,5 @@
 	path = libs/imap
 	url = git@github.com:riiy/ImapClient.git
 [submodule "libs/smtp"]
-	path = libs/smtp
+	path = libs/SmtpMime
 	url = git@github.com:riiy/SmtpClient-for-Qt.git
