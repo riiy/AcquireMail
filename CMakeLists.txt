@@ -43,9 +43,15 @@ else()
         )
     endif()
 endif()
-add_subdirectory(libs/imap)
-add_subdirectory(libs/smtp)
-target_link_libraries(AcquireMail PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+set(SUBLIBS_DIR libs)
+set(SUBLIBS
+    imap
+    SmtpMime
+)
+foreach(LIB ${SUBLIBS})
+    add_subdirectory(${SUBLIBS_DIR}/${LIB})
+endforeach(LIB)
+target_link_libraries(AcquireMail PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${SUBLIBS})
 
 set_target_properties(AcquireMail PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
