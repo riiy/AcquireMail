@@ -43,7 +43,8 @@ else()
         )
     endif()
 endif()
-
+add_subdirectory(libs/imap)
+add_subdirectory(libs/smtp)
 target_link_libraries(AcquireMail PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(AcquireMail PROPERTIES
